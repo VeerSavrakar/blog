@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Add custom styles here (if needed) */
+    body {
+      padding-top: 50px;
+    }
+    .jumbotron {
+      background-image: url('https://example.com/amazing-picture.jpg'); /* Replace with the URL of the amazing picture */
+      background-size: cover;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+  </style>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>About Our Company</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt leo eu malesuada commodo. Nulla facilisi. Maecenas sit amet nisi in ex ullamcorper fringilla. Etiam ultricies, odio et rhoncus faucibus, purus odio blandit nisi, sit amet facilisis mi odio ac elit. Nullam ullamcorper bibendum ipsum, ac pellentesque urna tincidunt non. Praesent eu metus nunc.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Our History</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce consectetur, felis sit amet malesuada posuere, massa elit fermentum odio, a lacinia purus lectus id nisi. Sed euismod ullamcorper mi, eget fringilla quam. Proin a lacus eget velit ultrices iaculis in a dui. Nunc sit amet turpis vitae sapien fringilla ullamcorper nec id turpis.</p>
+      </div>
+      <div class="col-md-6">
+        <h2>Our Mission</h2>
+        <p>Nulla facilisi. Duis sollicitudin ultricies felis, in laoreet nulla dignissim sit amet. Nunc rhoncus ipsum sed cursus auctor. Etiam laoreet nisi vel ligula auctor, eget luctus arcu tincidunt. Curabitur ac luctus dolor. Donec at fermentum nisl, sit amet dignissim elit.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 Our Company. All rights reserved.</p>
+    </div>
+  </footer>
+{% endblock %}
