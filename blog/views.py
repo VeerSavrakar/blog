@@ -3,8 +3,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.urls import reverse_lazy
 from blog.models import Post, Comments
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm,CustomUserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.views.generic import (
     TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 )
@@ -45,6 +46,11 @@ class DraftListView(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull=True).order_by('-created_date')
+    
+class Userform(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('login')
+    template_name="registration/signup.html"
 
 @login_required
 def add_comment_to_post(request, pk):
@@ -80,3 +86,4 @@ def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post_detail', pk=pk)
+
