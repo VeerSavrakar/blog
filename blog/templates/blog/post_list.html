@@ -1,22 +1,25 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
-<div class="centerstage  " style="display: flex; flex-wrap: wrap;">
+<div class="centerstage row">
     {% for post in post_list %}
-    <div class="post col-md-3" style="flex: 0 0 auto; margin-right: 20px;">
-        <!-- Check if 'post.image' is the correct attribute -->
-        {% if post.image %}
-        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="max-width: 300px; height: 250px;">
-        {% else %}
-        <!-- Provide a placeholder image or message if no image is available -->
-        <img src="{% static "C:\Users\Veer Savarkar\Pictures\Camera Roll\84924.jpg" %}" class="card-img-top" alt="No Image" style="max-width: 200px; height: 150px;">
-        {% endif %}
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <div class="date">
-            <p>Published on: {{ post.published_date|date:"D M Y" }}</p>
+    <div class="post col-md-4">
+        <div class="card">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+            {% else %}
+            <img src="{% static "C:\Users\Veer Savarkar\Pictures\Camera Roll\84924.jpg" %}" class="card-img-top" alt="No Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
+                <p class="card-text">Published on: {{ post.published_date|date:"D M Y" }}</p>
+                <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read More</a>
+            </div>
         </div>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments:{{ post.approve_comments.count }}</a>
     </div>
+    {% if forloop.counter|divisibleby:4 %}
+    </div><div class="centerstage row">
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
