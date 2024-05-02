@@ -1,9 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
-<div class="centerstage" style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+<div class="centerstage  " style="display: flex; flex-wrap: wrap;">
     {% for post in post_list %}
-    <div class="post" style="flex: 0 0 auto; margin-right: 20px;">
+    <div class="post col-md-3" style="flex: 0 0 auto; margin-right: 20px;">
         <!-- Check if 'post.image' is the correct attribute -->
         {% if post.image %}
         <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="max-width: 300px; height: 250px;">
